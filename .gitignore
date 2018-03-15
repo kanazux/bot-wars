@@ -1,0 +1,6 @@
+*.pyc
+.tox*
+*egg-info/*
+.coverage
+htmlcov/*
+.cc_token

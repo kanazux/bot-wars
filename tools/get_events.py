@@ -1,20 +1,21 @@
-#!/usr/local/bin/python2.7
+#!/usr/bin/python3.6
 # -*- coding: utf-8 -*-
+"""Part of bot wars."""
 
 
-import requests
-from bs4 import BeautifulSoup as bs
+from requests_html import HTMLSession
 
 
 def get_events():
-    events_data = bs(requests.get(
-      'https://forum.com2us.com/forum/main-forum/summoner-s-war/events-ab').text, "html.parser")
-
+    """Get events of summoners wars."""
+    u = 'https://forum.com2us.com/forum/main-forum/summoner-s-war/events-ab'
+    s = HTMLSession
+    r = s.get(u)
     events = "\n".join([
-      x.text for x in events_data.findAll("a") if 'class' in x.attrs
-      if " ".join(x.attrs['class']) == "topic-title js-topic-title"][:4])
+        x.text for x in r.find("a.topic-title")[:5]])
 
     return events
 
+
 if __name__ == "__main__":
-    print get_events()
+    print(get_events())
