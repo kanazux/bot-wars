@@ -1,17 +1,13 @@
 #!/usr/bin/python3.6
 
 
-import re
 from unittest import TestCase, main
-from bot_wars.tools import get_events
-
-
-pattern = re.compile(r"[.*\n]{5}")
+from bot_tools.get_events import list_events
 
 
 class testGetEvents(TestCase):
     def test_get_events(self):
-        self.assertTrue(pattern.match(get_events()))
+        self.assertIsInstance(list_events(), (str))
 
 
 if __name__ == "__main__":

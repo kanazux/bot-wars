@@ -2,5 +2,5 @@ from setuptools import setup
 
 
 setup(name="bot_wars",
-      packages=["tools"],
+      packages=["bot_tools"],
       zip_safe=False)
