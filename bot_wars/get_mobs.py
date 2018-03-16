@@ -21,4 +21,5 @@ def list_mobs():
             'td', {'class': 'early-runes'}).text
         mobs[_name]['late-runes'] = i.find(
             'td', {'class': 'late-runes'}).text
+
     return mobs
