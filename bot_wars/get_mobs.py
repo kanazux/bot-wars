@@ -17,6 +17,7 @@ def list_mobs():
         mobs[_name] = defaultdict(lambda: False)
         mobs[_name]['link'] = i.find('a').attrs['href']
         mobs[_name]['element'] = i.attrs['data-element']
+        mobs[_name]['class'] = i.find('h3').text
         mobs[_name]['early-runes'] = i.find(
             'td', {'class': 'early-runes'}).text
         mobs[_name]['late-runes'] = i.find(

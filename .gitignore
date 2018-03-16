@@ -6,3 +6,4 @@ htmlcov/*
 .cc_token
 build/*
 dist/*
+kanazux.py
