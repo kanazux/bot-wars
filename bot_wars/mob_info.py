@@ -22,7 +22,6 @@ def get_info(mob):
         skill_name = i.find('h5', {'class': 'skill-title'}).text
         dict_mob[mob]['skills'][skill_name] = defaultdict(lambda: False)
         description = i.find('div', {'class': 'description'}).text
-        print(description)
         dict_mob[mob]['skills'][skill_name]['description'] = description
         if i.find('div', {'class': 'multiplier'}):
             multiplier = i.find('div', {'class': 'multiplier'}).text

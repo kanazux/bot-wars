@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from bot_tools.get_mobs import list_mobs
+from bot_wars.get_mobs import list_mobs
 from collections import defaultdict
 
 

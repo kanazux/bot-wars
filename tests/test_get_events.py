@@ -2,7 +2,7 @@
 
 
 from unittest import TestCase, main
-from bot_tools.get_events import list_events
+from bot_wars.get_events import list_events
 
 
 class testGetEvents(TestCase):
