@@ -8,6 +8,6 @@ script:
 script:
   tox
 script:
-  coverage3 run --source=bot_tools -m unittest discover -s tests/
+  coverage3 run --source=bot_wars -m unittest discover -s tests/
 after_success:
   codecov
