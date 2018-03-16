@@ -15,6 +15,7 @@ def list_mobs():
     for i in get_list.find_all('tr', {'class': 'searchable'}):
         _name = i.attrs['data-search-text'].split()[0][1:-1]
         mobs[_name] = defaultdict(lambda: False)
+        mobs[_name]['name'] = _name.lower()
         mobs[_name]['link'] = i.find('a').attrs['href']
         mobs[_name]['element'] = i.attrs['data-element']
         mobs[_name]['class'] = i.find('h3').text
