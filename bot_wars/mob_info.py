@@ -9,11 +9,9 @@ from bs4 import BeautifulSoup as bs
 from collections import defaultdict
 
 
-mobs = list_mobs()
-
-
 def get_info(mob):
     """Get info of mob."""
+    mobs = list_mobs()
     dict_mob = defaultdict(lambda: False)
     get_info = bs(requests.get(mobs[mob]['link']).text, 'lxml')
     dict_mob[mob] = defaultdict(lambda: False)
