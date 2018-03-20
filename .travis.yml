@@ -2,12 +2,18 @@ language: python
 python:
   '3.6'
 install:
-  pip install bs4 requests requests-html tox-travis coverage codecov
+  pip install mutpy bs4 requests requests-html tox-travis coverage codecov
 script:
   python setup.py test
 script:
   tox
 script:
   coverage3 run --source=bot_wars -m unittest discover -s tests/
+script:
+  mut.py --target bot_wars.mob_info --unit-test tests.test_mob_info -m -c -e
+script:
+  mut.py --target bot_wars.get_events --unit-test tests.test_get_events -m -c -e
+script:
+  mut.py --target bot_wars.get_mobs --unit-test tests.test_get_mobs -m -c -e
 after_success:
   codecov
