@@ -12,7 +12,6 @@
 
 
 import os
-import re
 import telegram
 from bot_wars import list_events, list_mobs, get_info
 from telegram.ext import Updater
@@ -49,8 +48,7 @@ def skills(bot, update):
 def info(bot, update):
     get_name = update.message['text'][6:]
     mobs = list_mobs()
-    mob = [x for x in mobs
-           if re.match(r".*{}.*".format(get_name.lower()), x)][0]
+    mob = mobs[get_name.lower()]
     mob_info = get_info(get_name.lower())
     message = "\n".join([
         "\nNome: *{}*".format(get_name[0].upper() + get_name[1:].lower()),

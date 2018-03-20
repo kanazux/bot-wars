@@ -13,9 +13,13 @@ def list_mobs():
         'https://www.summonerswarskyarena.info/monster-list/').text, 'lxml')
     mobs = defaultdict(lambda: False)
     for i in get_list.find_all('tr', {'class': 'searchable'}):
-        _name = i.attrs['data-search-text'].lower()
+        _name = i.find_all(
+            'td', {'class': 'icon'})[-1].attrs['data-sort-value'].lower()
+        if _name == 'homunculus':
+            _name = "{} {}".format(
+                _name, i.find('span', {'class': 'element'}).text.lower())
         mobs[_name] = defaultdict(lambda: False)
-        mobs[_name]['name'] = _name.lower()
+        mobs[_name]['name'] = _name
         mobs[_name]['link'] = i.find('a').attrs['href']
         mobs[_name]['element'] = i.attrs['data-element']
         mobs[_name]['class'] = i.find('h3').text
