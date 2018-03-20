@@ -13,7 +13,7 @@ def list_mobs():
         'https://www.summonerswarskyarena.info/monster-list/').text, 'lxml')
     mobs = defaultdict(lambda: False)
     for i in get_list.find_all('tr', {'class': 'searchable'}):
-        _name = i.attrs['data-search-text'].split()[0][1:-1].lower()
+        _name = i.attrs['data-search-text'].lower()
         mobs[_name] = defaultdict(lambda: False)
         mobs[_name]['name'] = _name.lower()
         mobs[_name]['link'] = i.find('a').attrs['href']
