@@ -8,7 +8,7 @@ from bot_wars.get_events import list_events
 
 class testGetEvents(TestCase):
     def test_get_events(self):
-        self.assertIsInstance(list_events(), (str))
+        self.assertIsInstance(list_events(), (int))
 
     def test_regex_events(self):
         pattern = re.compile(r"(.*\n){4}.*")
