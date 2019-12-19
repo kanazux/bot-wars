@@ -5,7 +5,7 @@ from bot_wars.mob_info import get_info
 
 class testMobInfo(TestCase):
     def test_mob_info(self):
-        self.assertIsInstance(get_info('rina'), (defaultdict))
+        self.assertIsInstance(get_info('rinoceronte'), (defaultdict))
 
 
 if __name__ == "__main__":
