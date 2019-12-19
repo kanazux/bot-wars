@@ -10,7 +10,7 @@ from collections import defaultdict
 def list_mobs():
     """List all mobs from summonerswarskyarena.info."""
     get_list = bs(requests.get(
-        'https://www.summonerswarskyarena.info/monster-list/').text, 'lxml')
+        'https://www.summonerswarskyarena.inf/monster-list/').text, 'lxml')
     mobs = defaultdict(lambda: False)
     for i in get_list.find_all('tr', {'class': 'searchable'}):
         _name = i.find_all(
